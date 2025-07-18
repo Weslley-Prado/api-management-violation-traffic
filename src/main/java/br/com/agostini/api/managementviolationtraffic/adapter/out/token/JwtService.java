@@ -1,41 +1,37 @@
 package br.com.agostini.api.managementviolationtraffic.adapter.out.token;
 
 import br.com.agostini.api.managementviolationtraffic.application.port.out.TokenServicePort;
+import br.com.agostini.api.managementviolationtraffic.config.JwtProperties;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-
-
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.security.Key;
 
 @Service
 public class JwtService implements TokenServicePort {
 
-    @Value("${jwt.secret}")
-    private String secret;
-
-    @Value("${jwt.expiration}")
-    private Long expirationMillis;
+    @Autowired
+    private JwtProperties jwtProperties;
 
     private Key key;
 
     @PostConstruct
     public void init() {
-        this.key = Keys.hmacShaKeyFor(secret.getBytes());
+        this.key = Keys.hmacShaKeyFor(jwtProperties.getSecret().getBytes());
     }
 
     @Override
     public String generateToken(String subject) {
         Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + expirationMillis);
+        Date expiryDate = new Date(now.getTime() + jwtProperties.getExpiration());
 
         return Jwts.builder()
                 .setSubject(subject)

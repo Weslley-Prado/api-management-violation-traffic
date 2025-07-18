@@ -17,12 +17,8 @@ public class JpaUserAuthenticationAdapter implements UserAuthenticationPort {
     private final BCryptPasswordEncoder passwordEncoder;
     private final TokenServicePort tokenService;
 
-
     @Override
     public TokenResponse authenticate(LoginRequest loginRequest) {
-
-        var senha = passwordEncoder.encode(loginRequest.password());
-        var user0 = usuarioJpaRepository.findByUsername(loginRequest.username());
         return usuarioJpaRepository.findByUsername(loginRequest.username())
                 .filter(user -> passwordEncoder.matches(loginRequest.password(), user.getPassword()))
                 .map(usuario -> {

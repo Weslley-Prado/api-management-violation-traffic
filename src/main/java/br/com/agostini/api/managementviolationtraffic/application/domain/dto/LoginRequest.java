@@ -6,4 +6,5 @@ import lombok.Builder;
 public record LoginRequest(
         String username,
         String password
-) {}
+) {
+}
