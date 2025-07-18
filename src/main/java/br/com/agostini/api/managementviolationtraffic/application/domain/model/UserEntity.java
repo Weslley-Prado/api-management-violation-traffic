@@ -6,23 +6,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 import java.util.UUID;
 
 @Entity
-@Table(name = "usuarios")
-public class UsuarioEntity {
+@Table(name = "users")
+@Data
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
-    private String senha;
+    private String password;
 
     @Column(nullable = false)
-    private String nome;
+    private String username;
 }
