@@ -261,7 +261,6 @@
 	</dependencyManagement>
 
 	<build>
-
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -287,31 +286,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-<!--			Não recomenadado para ambientes de QA, produção,-->
-<!--			Recomenda-se, variável de ambiente-->
-<!--			<plugin>-->
-<!--				<groupId>org.flywaydb</groupId>-->
-<!--				<artifactId>flyway-maven-plugin</artifactId>-->
-<!--				<version>10.10.0</version>-->
-<!--				<configuration>-->
-<!--					<url>${flyway.url}</url>-->
-<!--					<user>${flyway.user}</user>-->
-<!--					<password>${flyway.password}</password>-->
-<!--					<locations>-->
-<!--						<location>filesystem:src/main/resources/db/migration</location>-->
-<!--					</locations>-->
-<!--				</configuration>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<phase>validate</phase>-->
-<!--						<goals>-->
-<!--							<goal>migrate</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
-
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
