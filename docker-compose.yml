@@ -1,0 +1,42 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:15
+    ports:
+      - "5433:5433"
+    environment:
+      - POSTGRES_DB=db_managementviolationtraffic
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - infrasystem-network
+
+  infrasystem:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_APPLICATION_NAME=api-management-violation-traffic
+      - SERVER_PORT=8080
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/db_managementviolationtraffic
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_FLYWAY_ENABLED=true
+      - SPRING_FLYWAY_LOCATIONS=classpath:db/migration
+      - SPRING_FLYWAY_BASELINE_ON_MIGRATE=true
+    depends_on:
+      - postgres
+    networks:
+      - infrasystem-network
+networks:
+  infrasystem-network:
+    driver: bridge
+
+volumes:
+  localstack-data:
+  postgres-data:

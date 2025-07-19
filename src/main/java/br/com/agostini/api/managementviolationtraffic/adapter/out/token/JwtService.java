@@ -14,6 +14,7 @@ import java.util.Date;
 import io.jsonwebtoken.security.Keys;
 
 import java.security.Key;
+import java.util.List;
 
 @Service
 public class JwtService implements TokenServicePort {
@@ -35,6 +36,8 @@ public class JwtService implements TokenServicePort {
 
         return Jwts.builder()
                 .setSubject(subject)
+                .claim("roles", List.of("EQUIPMENT_READ", "EQUIPMENT_WRITE"))
+                .setIssuer("manager-auth")
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
                 .signWith(key, SignatureAlgorithm.HS256)
