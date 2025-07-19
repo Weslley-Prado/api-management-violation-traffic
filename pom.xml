@@ -10,7 +10,7 @@
 
 	<groupId>br.com.agostini</groupId>
 	<artifactId>managementviolationtraffic</artifactId>
-	<version>1.4.00</version>
+	<version>1.0.00</version>
 
 	<properties>
 		<spring-cloud.version>2023.0.1</spring-cloud.version>
@@ -21,9 +21,6 @@
 		<config.server>DEFAULT</config.server>
 		<java.version>17</java.version>
 		<mockito.version>5.2.0</mockito.version>
-<!--		<flyway.url>jdbc:postgresql://localhost:5432/db_managementviolationtraffic</flyway.url>-->
-<!--		<flyway.user>postgres</flyway.user>-->
-<!--		<flyway.password>postgres</flyway.password>-->
 	</properties>
 
 	<dependencies>
