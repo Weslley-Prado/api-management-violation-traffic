@@ -11,10 +11,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = "br.com.agostini.api.managementviolationtraffic")
 @EntityScan(basePackages = "br.com.agostini.api.managementviolationtraffic.application.domain.model")
 @SpringBootApplication
-public class ApiManagementViolationTrafficApplication {
+public class TokenManagerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiManagementViolationTrafficApplication.class, args);
+		SpringApplication.run(TokenManagerApplication.class, args);
 	}
 
 }

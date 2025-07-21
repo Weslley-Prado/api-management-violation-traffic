@@ -458,15 +458,10 @@
 				</executions>
 				<configuration>
 					<excludes>
-						<exclude>**/config/**</exclude>
-						<exclude>**/exception/**</exclude>
-						<exclude>**/adapter/in/web/mapper/**</exclude>
-						<exclude>**/adapter/in/web/bound/**</exclude>
-						<exclude>**/adapter/out/database/mapper/**</exclude>
-						<exclude>**/adapter/out/database/bound/**</exclude>
-						<exclude>**/domain/model/**</exclude>
+						<exclude>**/config/*.**</exclude>
 						<exclude>**/openapi/*/**</exclude>
-						<exclude>**/PbmCartApplication.*</exclude>
+						<exclude>**/TokenManagerApplication.*</exclude>
+						<exclude>br/com/agostini/api/managementviolationtraffic/application/domain/model/UserEntity.class</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
