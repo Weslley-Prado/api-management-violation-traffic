@@ -9,7 +9,7 @@
 	</parent>
 
 	<groupId>br.com.agostini</groupId>
-	<artifactId>managementviolationtraffic</artifactId>
+	<artifactId>tokenmanager</artifactId>
 	<version>1.0.00</version>
 
 	<properties>
