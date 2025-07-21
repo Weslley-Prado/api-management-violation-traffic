@@ -160,7 +160,7 @@ curl --request POST \
 
 Essa API oferece uma solução segura, escalável e manutenível para autenticação baseada em tokens, aproveitando os benefícios da Arquitetura Hexagonal e tecnologias modernas de Java.
 
-## Cobertura de Teste
+## Cobertura de Teste 
 
 ![img.png](img.png)
 
